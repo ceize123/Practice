@@ -1,0 +1,159 @@
+$colorBlue: #3FA7FF
+$colorYellow: #F5D658
+$colorOrange: #FAAB00
+$colorRed: #FA1D00
+$colorDeepblue: #0034C4
+$colorShadow: rgba(black, 0.1)
+
+$shadowInset: inset -10px -10px 0px $colorShadow
+
+// *
+// 	border: solid 2px black
+
+@mixin size($w, $h:$w)
+	width: $w
+	height: $h
+
+@mixin flexcenter
+	display: flex
+	justify-content: center
+	align-items: center
+
+@mixin bdrsrec($w, $h, $bdrs:$h/2)
+	width: $w
+	height: $h
+	border-radius: $bdrs
+
+@mixin hair($w, $h)
+	+bdrsrec($w, $h)
+	background-color: white
+	box-shadow: $shadowInset
+
+html, body
+	+size(100%)
+	margin: 0
+	+flexcenter
+
+.scene
+	+size(600px, 500px)
+	+flexcenter
+	background-color: $colorBlue
+	position: relative
+	.title
+		position: absolute
+		left: 20px
+		top: 20px
+		margin: 0
+		font-size: 50px
+		color: #fff
+		opacity: 0
+	.question
+		font-size: 35px
+		color: $colorYellow
+		display: none
+
+.person
+	position: relative
+	.message
+		font-size: 20px
+		font-weight: bold
+		color: #fff
+		position: absolute
+		left: -200px
+		top: 50px
+		opacity: 0
+	.hairs
+		position: relative
+		.hair1
+			+hair(150px, 80px)
+			margin-left: 10px
+		.hair2
+			+hair(150px, 60px)
+			margin:
+				left: 50px
+				top: -40px
+		.hair3
+			+hair(150px, 70px)
+			margin:
+				left: 5px
+				top: -45px
+
+	.body
+		+bdrsrec(210px, 120px, 40px)
+		padding-top: 50px
+		margin-top: -40px
+		background-color: $colorYellow
+		box-shadow: $shadowInset
+
+	.eyes
+		.eye
+			+bdrsrec(50px, 25px)
+			display: inline-block
+			margin-right: 5px
+			margin-left: 15px
+			background-color: white
+
+		.eyeball
+			+bdrsrec(25px, 25px)
+			background-color: $colorDeepblue
+
+	.mouth
+		+bdrsrec(70px, 25px)
+		margin-top: 15px
+		margin-left: 70px
+		background-color: #FAAB00
+
+		.food
+			+bdrsrec(12px, 12px)
+			margin-left: -40px
+			background-color: #FAAB00
+
+.scene
+	.title
+		transition: 0.5s
+	.person
+		transition: 0.5s
+		.message
+			transition-delay: 1s
+			transition: ease-in .2s
+		.body
+			transition: 0.5s, background-color 2s 0.5s
+		*
+			transition: 0.5s, background-color 2s 0.5s
+
+
+.scene:hover
+	.person
+		margin-top: 50px
+		.body
+			box-shadow: $shadowInset,30px 10px $colorShadow
+		&:hover
+			.message
+				opacity: 1
+			.body
+				box-shadow: $shadowInset,-30px 10px $colorShadow
+				background-color: $colorOrange
+			transform: translateX(40px)
+			.hairs
+				.hair3
+					margin-left: 0
+			.eyes
+				transform: translateX(30px)
+			.eyeball
+				transform: translateX(25px)
+			.mouth
+				transform: translateX(20px)
+				background-color: darken($colorOrange, 10%)
+				.food
+					background-color: darken($colorOrange, 10%)
+
+	.title
+		opacity: 1
+
+.scene:active
+	.question
+		display: block
+	.person
+		transform: scale(0.9)
+		.hairs
+			transform: translateY(-20px)

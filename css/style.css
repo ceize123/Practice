@@ -1,0 +1,178 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scene {
+  width: 600px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3FA7FF;
+  position: relative;
+}
+.scene .title {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  margin: 0;
+  font-size: 50px;
+  color: #fff;
+  opacity: 0;
+}
+.scene .question {
+  font-size: 35px;
+  color: #F5D658;
+  display: none;
+}
+
+.person {
+  position: relative;
+}
+.person .message {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  left: -200px;
+  top: 50px;
+  opacity: 0;
+}
+.person .hairs {
+  position: relative;
+}
+.person .hairs .hair1 {
+  width: 150px;
+  height: 80px;
+  border-radius: 40px;
+  background-color: white;
+  box-shadow: inset -10px -10px 0px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+}
+.person .hairs .hair2 {
+  width: 150px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: white;
+  box-shadow: inset -10px -10px 0px rgba(0, 0, 0, 0.1);
+  margin-left: 50px;
+  margin-top: -40px;
+}
+.person .hairs .hair3 {
+  width: 150px;
+  height: 70px;
+  border-radius: 35px;
+  background-color: white;
+  box-shadow: inset -10px -10px 0px rgba(0, 0, 0, 0.1);
+  margin-left: 5px;
+  margin-top: -45px;
+}
+.person .body {
+  width: 210px;
+  height: 120px;
+  border-radius: 40px;
+  padding-top: 50px;
+  margin-top: -40px;
+  background-color: #F5D658;
+  box-shadow: inset -10px -10px 0px rgba(0, 0, 0, 0.1);
+}
+.person .eyes .eye {
+  width: 50px;
+  height: 25px;
+  border-radius: 12.5px;
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 15px;
+  background-color: white;
+}
+.person .eyes .eyeball {
+  width: 25px;
+  height: 25px;
+  border-radius: 12.5px;
+  background-color: #0034C4;
+}
+.person .mouth {
+  width: 70px;
+  height: 25px;
+  border-radius: 12.5px;
+  margin-top: 15px;
+  margin-left: 70px;
+  background-color: #FAAB00;
+}
+.person .mouth .food {
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  margin-left: -40px;
+  background-color: #FAAB00;
+}
+
+.scene .title {
+  transition: 0.5s;
+}
+.scene .person {
+  transition: 0.5s;
+}
+.scene .person .message {
+  transition-delay: 1s;
+  transition: ease-in 0.2s;
+}
+.scene .person .body {
+  transition: 0.5s, background-color 2s 0.5s;
+}
+.scene .person * {
+  transition: 0.5s, background-color 2s 0.5s;
+}
+
+.scene:hover .person {
+  margin-top: 50px;
+}
+.scene:hover .person .body {
+  box-shadow: inset -10px -10px 0px rgba(0, 0, 0, 0.1), 30px 10px rgba(0, 0, 0, 0.1);
+}
+.scene:hover .person:hover {
+  transform: translateX(40px);
+}
+.scene:hover .person:hover .message {
+  opacity: 1;
+}
+.scene:hover .person:hover .body {
+  box-shadow: inset -10px -10px 0px rgba(0, 0, 0, 0.1), -30px 10px rgba(0, 0, 0, 0.1);
+  background-color: #FAAB00;
+}
+.scene:hover .person:hover .hairs .hair3 {
+  margin-left: 0;
+}
+.scene:hover .person:hover .eyes {
+  transform: translateX(30px);
+}
+.scene:hover .person:hover .eyeball {
+  transform: translateX(25px);
+}
+.scene:hover .person:hover .mouth {
+  transform: translateX(20px);
+  background-color: #c78800;
+}
+.scene:hover .person:hover .mouth .food {
+  background-color: #c78800;
+}
+.scene:hover .title {
+  opacity: 1;
+}
+
+.scene:active .question {
+  display: block;
+}
+.scene:active .person {
+  transform: scale(0.9);
+}
+.scene:active .person .hairs {
+  transform: translateY(-20px);
+}
+
+/*# sourceMappingURL=style.css.map */
